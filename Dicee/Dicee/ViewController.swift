@@ -21,22 +21,25 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+       
+        updateDiceImages()
     }
     // Roll button
     @IBAction func rollButtonPressed(_ sender: UIButton) {
+        
+        updateDiceImages()
+    }
+    
+    func updateDiceImages() {
         // When button is press a random number from 0 to 5 appears
         randomDiceIndex1 = Int.random(in: 0 ... 5)
         randomDiceIndex2 = Int.random(in: 0 ... 5)
         
-        // Calls it in order to run the app
-        print(randomDiceIndex1)
         // image property targets the image // UIImage is a datatype looking for an img
         diceImageView1.image = UIImage(named: diceArray[randomDiceIndex1])
         
         // targets diceArray with the randominized function as its parameter
         diceImageView2.image = UIImage(named: diceArray[randomDiceIndex2])
     }
-    
 }
 
