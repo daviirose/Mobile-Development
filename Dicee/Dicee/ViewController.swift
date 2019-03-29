@@ -9,6 +9,9 @@
 import UIKit
 
 class ViewController: UIViewController {
+    let diceArray = ["dice1", "dice2", "dice3", "dice4", "dice5", "dice6"]
+    
+    
     var randomDiceIndex1: Int = 0
     var randomDiceIndex2: Int = 0
     
@@ -22,11 +25,17 @@ class ViewController: UIViewController {
     }
     // Roll button
     @IBAction func rollButtonPressed(_ sender: UIButton) {
-        // When button is press a random number from 1 to 6 appears
+        // When button is press a random number from 0 to 5 appears
         randomDiceIndex1 = Int.random(in: 0 ... 5)
         randomDiceIndex2 = Int.random(in: 0 ... 5)
         
+        // Calls it in order to run the app
         print(randomDiceIndex1)
+        // image property targets the image // UIImage is a datatype looking for an img
+        diceImageView1.image = UIImage(named: diceArray[randomDiceIndex1])
+        
+        // targets diceArray with the randominized function as its parameter
+        diceImageView2.image = UIImage(named: diceArray[randomDiceIndex2])
     }
     
 }
